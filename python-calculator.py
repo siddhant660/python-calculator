@@ -1,5 +1,3 @@
-# A calculator program that can perform basic arithmetic operations
-
 def add(num1, num2):
     return num1 + num2
 
@@ -15,6 +13,18 @@ def divide(num1, num2):
     else:
         return num1 / num2
 
+def calculate(operation, num1, num2):
+    if operation == '1':
+        return add(num1, num2)
+    elif operation == '2':
+        return subtract(num1, num2)
+    elif operation == '3':
+        return multiply(num1, num2)
+    elif operation == '4':
+        return divide(num1, num2)
+    else:
+        return "Invalid operation"
+
 print("Welcome to the calculator program!")
 print("Please select an operation:")
 print("1. Add")
@@ -26,13 +36,6 @@ operation = input("Enter your choice (1/2/3/4): ")
 num1 = float(input("Enter the first number: "))
 num2 = float(input("Enter the second number: "))
 
-if operation == '1':
-    print(num1, "+", num2, "=", add(num1, num2))
-elif operation == '2':
-    print(num1, "-", num2, "=", subtract(num1, num2))
-elif operation == '3':
-    print(num1, "*", num2, "=", multiply(num1, num2))
-elif operation == '4':
-    print(num1, "/", num2, "=", divide(num1, num2))
-else:
-    print("Invalid operation")
+result = calculate(operation, num1, num2)
+
+print(num1, operation, num2, "=", result)
